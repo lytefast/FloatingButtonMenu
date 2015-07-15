@@ -26,7 +26,7 @@ public class FabFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TestFabMenuFrag newFragment = new TestFabMenuFrag();
+                Fragment newFragment = new FabMenuFragment();
 
                 getFragmentManager().beginTransaction()
                     .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)

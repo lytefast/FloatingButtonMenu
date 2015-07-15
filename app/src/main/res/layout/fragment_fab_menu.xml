@@ -2,7 +2,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
     >
     <TableLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -13,23 +12,51 @@
         android:background="@drawable/fab_menu_gradient"
         android:layout_gravity="bottom|right|end">
 
-        <include layout="@layout/fab_menu_item" />
-        <include layout="@layout/fab_menu_item" />
-
         <TableRow
-                android:clickable="true">
+            android:id="@+id/fab_menu_1"
+            android:clickable="true">
             <TextView
                 android:layout_column="1"
-                android:id="@+id/label"
-                android:editable="false"
-                android:layout_gravity="right|center_vertical"
-                style="@style/FabMenuText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="1st row"
+                style="@style/FabMenuText"
                 />
-
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/FabMenuMiniIcon"
+                android:src="@mipmap/ic_launcher" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/fab_menu_2"
+            android:clickable="true">
+            <TextView
+                android:layout_column="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2nd last row"
+                style="@style/FabMenuText"
+                />
+            <android.support.design.widget.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/FabMenuMiniIcon"
+                android:src="@mipmap/ic_launcher" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/fab_menu_last"
+            android:clickable="true">
+            <TextView
+                android:layout_column="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="last row"
+                style="@style/FabMenuText"
+                />
+            <android.support.design.widget.FloatingActionButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"

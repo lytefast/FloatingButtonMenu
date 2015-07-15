@@ -1,4 +1,5 @@
-<resources>
+<resources
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -8,9 +9,23 @@
     <style name="FabMenuText" parent="AppTheme">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">right|center_vertical</item>
+        <item name="android:editable">false</item>
         <item name="android:textColor">@color/highlighted_text_material_dark</item>
         <item name="android:background">@drawable/rounded_rect</item>
-        <item name="android:padding">4dp</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="FabMenuMiniIcon" parent="AppTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="fabSize"> mini</item>
+        <item name="borderWidth">0dp</item>
     </style>
 
 </resources>
