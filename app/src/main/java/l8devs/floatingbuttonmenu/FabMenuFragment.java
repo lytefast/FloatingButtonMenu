@@ -39,18 +39,6 @@ public class FabMenuFragment extends DialogFragment {
         return dialog;
     }
 
-    protected static class FabMenuItem {
-        private final int labelStrId;
-        private final Drawable drawable;
-        private final View.OnClickListener onClickListener;
-
-        public FabMenuItem(int labelStrId, Drawable drawable, View.OnClickListener onClickListener) {
-            this.labelStrId = labelStrId;
-            this.drawable = drawable;
-            this.onClickListener = onClickListener;
-        }
-    }
-
     protected Map<Integer, View.OnClickListener> getFabMenuItems() {
         HashMap<Integer, View.OnClickListener> listenerMap = new HashMap<>();
         listenerMap.put(R.id.fab_menu_1, createListener("fab_menu_1"));
