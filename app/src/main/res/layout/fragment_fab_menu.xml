@@ -1,0 +1,44 @@
+<FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+    >
+    <TableLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/table"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1"
+        android:background="@drawable/fab_menu_gradient"
+        android:layout_gravity="bottom|right|end">
+
+        <include layout="@layout/fab_menu_item" />
+        <include layout="@layout/fab_menu_item" />
+
+        <TableRow
+                android:clickable="true">
+            <TextView
+                android:layout_column="1"
+                android:id="@+id/label"
+                android:editable="false"
+                android:layout_gravity="right|center_vertical"
+                style="@style/FabMenuText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                app:backgroundTint="@color/common_signin_btn_default_background"
+                app:borderWidth="0dp"
+                android:src="@mipmap/ic_launcher" />
+        </TableRow>
+    </TableLayout>
+</FrameLayout>
