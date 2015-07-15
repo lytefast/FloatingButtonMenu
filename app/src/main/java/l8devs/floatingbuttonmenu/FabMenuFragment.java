@@ -1,17 +1,20 @@
 package l8devs.floatingbuttonmenu;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -24,7 +27,7 @@ import java.util.Map;
  * A fragment which is displays a FloatingActionButton menu
  */
 public class FabMenuFragment extends DialogFragment {
-    private FloatingActionButton mFab;
+    private final AnimatorSet animatorEntrance = new AnimatorSet();
 
     public FabMenuFragment() {
         // Required empty public constructor
@@ -51,21 +54,28 @@ public class FabMenuFragment extends DialogFragment {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(getActivity())
-                    .setMessage(title + " clicked")
-                    .show();
-                dismiss();
+                v.animate().alpha(0.5f).scaleX(2).scaleY(2)
+                    .setDuration(getResources().getInteger(android.R.integer.config_shortAnimTime))
+                    .setListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            new AlertDialog.Builder(getActivity())
+                                .setMessage(title + " clicked")
+                                .show();
+                            dismiss();
+                        }
+                    });
             }
         };
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-        Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_fab_menu, container, false);
+        final View view = inflater.inflate(R.layout.fragment_fab_menu, container, false);
 
-        View.OnClickListener dismissOnclickListener = new View.OnClickListener() {
+        final View.OnClickListener dismissOnclickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dismiss();
@@ -74,18 +84,47 @@ public class FabMenuFragment extends DialogFragment {
         view.setOnClickListener(dismissOnclickListener);
 
         Map<Integer, View.OnClickListener> fabMenuItems = getFabMenuItems();
-
-        TableLayout table = (TableLayout) view.findViewById(R.id.table);
+        final TableLayout table = (TableLayout) view.findViewById(R.id.table);
         int numRows = table.getChildCount();
         for (int i = 0; i < numRows; i++) {
             TableRow row = (TableRow) table.getChildAt(i);
             row.setOnClickListener(dismissOnclickListener);
-            setFabMenuOnClicklistener(row, fabMenuItems.get(row.getId()));
+            setFabMenuOnClickListener(row, fabMenuItems.get(row.getId()));
         }
+
+        view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                //At this point the layout is complete and the
+                //dimensions of myView and any child views are known.
+                int numRows = table.getChildCount();
+                Animator[] rowAnimations = new Animator[numRows];
+                for (int i = 0; i < numRows; i++) {
+                    TableRow row = (TableRow) table.getChildAt(i);
+                    rowAnimations[i] = createFabMenuAnimation(row);
+                }
+                animatorEntrance.playTogether(rowAnimations);
+                animatorEntrance.setDuration(
+                    getResources().getInteger(android.R.integer.config_shortAnimTime));
+                animatorEntrance.start();
+
+                view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            }
+        });
         return view;
     }
 
-    private void setFabMenuOnClicklistener(TableRow row, View.OnClickListener listener) {
+    @Override
+    public void onStop() {
+        super.onStop();
+        animatorEntrance.cancel();
+    }
+
+    private Animator createFabMenuAnimation(TableRow row) {
+        return ObjectAnimator.ofFloat(row, View.TRANSLATION_Y, row.getHeight(), 0);
+    }
+
+    private void setFabMenuOnClickListener(TableRow row, View.OnClickListener listener) {
         // Add listener to children of the row
         for (int j = 0; j < row.getChildCount(); j++) {
             row.getChildAt(j).setOnClickListener(listener);
