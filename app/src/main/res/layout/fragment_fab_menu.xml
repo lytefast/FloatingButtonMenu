@@ -47,7 +47,7 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/fab_menu_last"
+            android:id="@+id/fab_menu_main"
             android:clickable="true">
             <TextView
                 android:layout_column="1"
@@ -55,6 +55,7 @@
                 android:layout_height="wrap_content"
                 android:text="last row"
                 style="@style/FabMenuText"
+                android:tag="@+id/fab_menu_icon"
                 />
             <android.support.design.widget.FloatingActionButton
                 android:layout_width="wrap_content"
@@ -63,6 +64,7 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
+                android:tag="@string/fab_tag_menu_icon"
                 app:backgroundTint="@color/common_signin_btn_default_background"
                 app:borderWidth="0dp"
                 android:src="@mipmap/ic_launcher" />
