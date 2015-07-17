@@ -23,8 +23,14 @@ import java.util.Map;
 /**
  * Helps initialize a floating button menu.
  * <p>
- *   Register events to {@link View}s via the constructor parameter {@link #onClickListenerMap}.
+ * Register events to {@link View}s via the constructor parameter {@link #onClickListenerMap}.
  * </p>
+ *
+ * Use the {@link R.string#fab_tag_menu_icon} and {@link R.string#fab_tag_main_row} view tags
+ * to specify the button section of a menu row and to specify the main menu row respectively.
+ *
+ * @see l8devs.floatingbuttonmenu.R.string#fab_tag_menu_icon
+ * @see l8devs.floatingbuttonmenu.R.string#fab_tag_main_row
  */
 public class FloatingButtonMenuInitializer {
   private final Context context;
@@ -117,8 +123,8 @@ public class FloatingButtonMenuInitializer {
    * @see #createMenuRowAnimation(ViewGroup, AnimatorFactory[])
    */
   protected Animator createMenuRowAnimation(ViewGroup row) {
-    if (row.getId() == R.id.fab_menu_main) {
-      // special case the main fab button
+    if (row.getTag() == context.getString(R.string.fab_tag_main_row)) {
+      // special case the main menu row
       return animatorFactoryFadeIn.createAnimator(row);
     }
 

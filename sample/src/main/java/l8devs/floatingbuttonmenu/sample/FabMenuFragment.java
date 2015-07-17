@@ -1,4 +1,4 @@
-package l8devs.floatingbuttonmenu;
+package l8devs.floatingbuttonmenu.sample;
 
 
 import android.animation.Animator;
@@ -20,6 +20,8 @@ import android.widget.TableLayout;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import l8devs.floatingbuttonmenu.FloatingButtonMenuInitializer;
 
 
 /**

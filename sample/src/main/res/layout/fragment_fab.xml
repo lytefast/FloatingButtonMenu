@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="l8devs.floatingbuttonmenu.FabFragment">
+    tools:context="l8devs.floatingbuttonmenu.sample.FabFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.design.widget.FloatingActionButton
