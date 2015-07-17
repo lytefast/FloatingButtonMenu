@@ -9,6 +9,7 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -123,7 +124,7 @@ public class FloatingButtonMenuInitializer {
    * @see #createMenuRowAnimation(ViewGroup, AnimatorFactory[])
    */
   protected Animator createMenuRowAnimation(ViewGroup row) {
-    if (row.getTag() == context.getString(R.string.fab_tag_main_row)) {
+    if (TextUtils.equals((String) row.getTag(), context.getString(R.string.fab_tag_main_row))) {
       // special case the main menu row
       return animatorFactoryFadeIn.createAnimator(row);
     }
