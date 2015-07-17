@@ -1,4 +1,4 @@
 <resources>
-    <string name="fab_tag_menu_icon">fab_tag_menu_icon</string>
     <string name="fab_tag_main_row">fab_tag_main_row</string>
+    <string name="fab_tag_menu_icon">fab_tag_menu_icon</string>
 </resources>
