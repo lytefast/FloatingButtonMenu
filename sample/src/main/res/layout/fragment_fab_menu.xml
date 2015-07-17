@@ -48,6 +48,7 @@
 
         <TableRow
             android:id="@+id/fab_menu_main"
+            android:tag="@string/fab_tag_main_row"
             android:clickable="true">
             <TextView
                 android:layout_column="1"
