@@ -1,4 +1,4 @@
-package l8devs.floatingbuttonmenu;
+package l8devs.floatingbuttonmenu.sample;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

@@ -1,18 +1,16 @@
-package l8devs.floatingbuttonmenu;
+package l8devs.floatingbuttonmenu.sample;
 
 
 import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.HashMap;
-import java.util.Map;
+import l8devs.floatingbuttonmenu.AnimatorFactory;
+import l8devs.floatingbuttonmenu.FloatingButtonMenuInitializer;
 
 
 /**

@@ -1,4 +1,4 @@
-package l8devs.floatingbuttonmenu;
+package l8devs.floatingbuttonmenu.sample;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -30,7 +30,8 @@ public class FabFragment extends Fragment {
         Fragment newFragment = new SampleFabMenuFragment();
 
         getFragmentManager().beginTransaction()
-            .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
+            .setCustomAnimations(R.anim.abc_fade_in, l8devs
+                .floatingbuttonmenu.R.anim.abc_fade_out)
             .add(R.id.fragment_container, newFragment, "fab menu")
             .addToBackStack("fab menu")
             .commit();

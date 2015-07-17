@@ -1,4 +1,4 @@
-package l8devs.floatingbuttonmenu;
+package l8devs.floatingbuttonmenu.sample;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -117,10 +117,10 @@ public class FloatingButtonMenuInitializer {
    * @see #createMenuRowAnimation(ViewGroup, AnimatorFactory[])
    */
   protected Animator createMenuRowAnimation(ViewGroup row) {
-    if (row.getId() == R.id.fab_menu_main) {
-      // special case the main fab button
-      return animatorFactoryFadeIn.createAnimator(row);
-    }
+//    if (row.getId() == R.id.fab_menu_main) {
+//      // special case the main fab button
+//      return animatorFactoryFadeIn.createAnimator(row);
+//    }
 
     return createMenuRowAnimation(row,
         animatorFactoryFadeIn,

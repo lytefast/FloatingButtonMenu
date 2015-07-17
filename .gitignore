@@ -3,5 +3,5 @@
 .DS_Store
 /build
 /captures
-*.iml
+**/*.iml
 local.properties
